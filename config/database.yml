@@ -23,3 +23,6 @@ test:
 production:
   <<: *default
   database: storage/production.sqlite3
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>
