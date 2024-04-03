@@ -1,0 +1,30 @@
+<!-- app/views/films/edit.html.erb -->
+<link rel="stylesheet" href="edit.css">
+<div class="form-container">
+  <div class="form-header">
+    <h1>Edit Film</h1>
+  </div>
+
+  <div class="form-divider"></div>
+
+  <%= form_with(model: @film, url: film_path(@film), method: :patch) do |form| %>
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+
+    <%= form.label :release_date %>
+    <%= form.date_field :release_date, class: 'form-control' %>
+
+    <%= form.label :director %>
+    <%= form.text_field :director, class: 'form-control' %>
+
+    <%= form.label :poster_url %>
+    <%= form.text_field :poster_url, class: 'form-control' %>
+
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control' %>
+
+    <div class="form-footer">
+      <%= form.submit "Update", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

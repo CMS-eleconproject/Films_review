@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    color: black; /* Set default text color to black */
+  }
+  
+  .sign-up-form {
+    background-image: linear-gradient(to right, blue, purple); /* Gradient background */
+    padding: 20px;
+    border-radius: 5px;
+    color: white; /* Text color for form elements */  /* Adjust text color as needed */
+    width: 400px; /* Adjust width as needed */
+    margin: 50px auto; /* Center the form horizontally */
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; /* Text color for headings */
+  }
+  
+  .field {
+    margin-bottom: 15px;
+  }
+  
+  .field label {
+    display: block;
+    margin-bottom: 5px;
+    color: white; /* Text color for labels */
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    background-color: white; /* Input field background color */
+  }
+  
+  .actions {
+    text-align: center;
+  }
+  
+  .actions button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

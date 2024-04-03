@@ -1,0 +1,19 @@
+<% if current_user %>
+  <h2>Add a Review</h2>
+
+  <%= form_for [@film], method: :post do |f| %>
+    <%= render 'shared/error_messages', object: @review %>
+
+    <div class="form-group">
+      <%= f.label :content, "Review" %>
+      <%= f.text_area :content, rows: 5, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rating, "Rating" %>
+      <%= f.select :rating, (1..5).to_a, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Submit Review", class: "btn btn-primary" %>
+  <% end %>
+<% end %>

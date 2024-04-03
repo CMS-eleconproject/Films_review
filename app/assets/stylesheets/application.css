@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ /* Define custom color variables */
+:root {
+    --primary-color: #7ac142; /* A deep, dark blue */
+    --light-color: #ecf0f1; /* A very light grey that complements the dark blue */
+  }
+  
+  /* Styles for post headers */
+  .film-header {
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+  }
+  
+  /* Styles for post bodies */
+  .film-body {
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Styles for the comments section */
+  .comments-section {
+    margin-top: 2rem;
+  }
+  
+  /* Styles for comment lists */
+  .comment-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Styles for individual comments */
+  .comment-item {
+    background-color: var(--light-color);
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Styles for the no comments message */
+  .no-comments {
+    color: grey;
+    font-style: italic;
+  }
+  
+  /* Styles for like/unlike buttons */
+  .like-unlike-btn {
+    margin-top: 1rem;
+  }
+  
+  /* Styles for the back button */
+  .back-btn {
+    margin-top: 2rem;
+  }
+  
+/* application.scss */
+@import "bootstrap";

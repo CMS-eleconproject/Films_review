@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<hr>
+<head>
+  <!-- Other meta tags and links -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<div class="card">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<%= @film.poster_url %>" class="img-fluid poster" alt="<%= @film.title %>">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="film-details">
+          <h1 class="film-title"><%= @film.title %></h1>
+          <p class="film-info">Released: <%= @film.release_date %></p>
+          <p class="film-info">Director: <%= @film.director %></p>
+          <p class="film-description">Description: <%= @film.description %></p>
+          <% if current_user %>
+            <% if @like = Like.find_by(user_id: current_user.id, film_id: @film.id) %>
+              <%= button_to "Unlike", film_like_path(@film), method: :delete, class: "btn btn-outline-danger like-unlike-btn float-end" %>
+            <% else %>
+              <%= button_to "Like", film_likes_path(@film), method: :post, class: "btn btn-primary like-unlike-btn float-end" %>
+          <% end %>
+          <% else %>
+            <div class="d-flex justify-content-center mb-3 no-login">
+              <h5>Please <%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to be able to like, comment, and edit your posts!!</h5>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% if @film.reviews.any? %>
+  <h2>Reviews</h2>
+<% end %>
+
+<button id="toggleReviewForm" class="btn btn-primary">Add a Review</button>
+
+<div id="reviewForm" style="display: none;" class="card mt-3">
+  <div class="card-body">
+    <%= form_for [@film, Review.new], method: :post do |f| %>
+      <%= render 'error_messages', object: @review %>
+
+      <div class="form-group">
+        <%= f.label :content, "Review" %>
+        <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "Enter your review" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :rating, "Rating" %>
+        <%= f.select :rating, (1..5).to_a, class: "form-control" %>
+        
+        <div class="col text-end">
+          <%= f.submit "Submit Review", class: "btn btn-primary" %>
+        </div>
+      
+      </div>
+      
+    <% end %>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleReviewFormButton = document.getElementById('toggleReviewForm');
+  const reviewForm = document.getElementById('reviewForm');
+
+  toggleReviewFormButton.addEventListener('click', function() {
+    if (reviewForm.style.display === 'none' || reviewForm.style.display === '') {
+      reviewForm.style.display = 'block';
+    } else {
+      reviewForm.style.display = 'none';
+    }
+  });
+});
+
+</script>
+
+<h2 class="comments-section">Reviews (<%= @reviews.count %>)</h2>
+
+<% if @film.reviews.any? %>
+  <div class="row">
+    <% @film.reviews.each do |review| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <p class="card-text"><%= review.content %></p>
+            <p class="card-text">Author: <%= review.user.email %></p>
+            <p class="card-text">Rating: <%= review.rating %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+</html>

@@ -1,0 +1,59 @@
+/* Add this CSS to your existing styles */
+ul.films-list {
+    list-style-type: none; /* Remove the default bullet points */
+  }
+  
+  .film-item {
+    margin-bottom: 20px; /* Add some space between film items */
+  }
+  /* Add this CSS to your existing styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .inline {
+    display: inline;
+  }
+  
+  .flex-end {
+    margin-left: auto;
+  }
+  /* Add this CSS to your existing styles */
+  .films-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between cards */
+  }
+  
+  .film-card {
+    flex: 1 0 30%; /* Adjust to control the number of cards per row */
+    max-width: calc(33.33% - 20px); /* Adjust for 3 cards per row with gap */
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .film-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .film-details {
+    padding: 15px 0;
+  }
+  
+  .film-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  

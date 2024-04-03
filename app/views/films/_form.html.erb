@@ -1,0 +1,41 @@
+<% if @film.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@film.errors.count, "error") %> prohibited this film from being saved:</h2>
+
+    <ul>
+    <% @film.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<!-- Link your external CSS file -->
+<%= stylesheet_link_tag 'bootstrap.min.css', 'styles.css' %>
+
+<div class="form-group">
+  <%= label_tag :title, "Title" %>
+  <%= text_field_tag :title, @film.title, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :release_date, "Release Date" %>
+  <%= date_field_tag :release_date, @film.release_date, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :director, "Director" %>
+  <%= text_field_tag :director, @film.director, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :description, "Description" %>
+  <%= text_area_tag :description, @film.description, rows: 5, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :poster_url, "Poster URL (optional)" %>
+  <%= text_field_tag :poster_url, @film.poster_url, class: "form-control" %>
+</div>
+
+<%= submit_tag "Create Film", class: "btn btn-primary" %>
